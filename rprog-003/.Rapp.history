@@ -1,0 +1,682 @@
+require(twitteR)
+??twitteR
+?twitteR
+??twitteR
+setwd("~/Dropbox/01.02.Study Notes/datasciencecoursera")
+setwd("~/Dropbox/01.02.Study Notes/datasciencecoursera/rprog-003/")
+source("http://d396qusza40orc.cloudfront.net/rprog%2Fscripts%2Fsubmitscript1.R")
+submit()
+source("/Users/yjin/Dropbox/01.02.Study Notes/datasciencecoursera/rprog-003/rprog-scripts-submitscript1.R")
+submit()
+submit()
+submit()
+submit()
+direcotry = "specdata"
+id = 1:332
+file2read <- paste(directory, "/", sprintf("%03d", id), ".csv", sep = "")#
+        dat <- list()#
+        for (i in seq_along(file2read)) {#
+                dat[[i]] <- read.csv(file2read[i])#
+        }#
+        dat_df <- do.call(rbind, dat)
+directory = "specdata"
+file2read <- paste(directory, "/", sprintf("%03d", id), ".csv", sep = "")
+dat <- list()
+for (i in seq_along(file2read)) {#
+                dat[[i]] <- read.csv(file2read[i])#
+        }
+dat_df <- do.call(rbind, dat)
+table(dat_df)
+table(dat_df$id)
+str(dat_df)
+table(dat_df$ID)
+count <- as.data.frame(table(dat_df$ID))
+count
+str(count)
+colnames(count) <- c("id", "nobs")
+complete <- function(directory, id = 1:332) {#
+        ## 'directory' is a character vector of length 1 indicating#
+        ## the location of the CSV files#
+#
+        ## 'id' is an integer vector indicating the monitor ID numbers#
+        ## to be used#
+        ## Return a data frame of the form:#
+        ## id nobs#
+        ## 1  117#
+        ## 2  1041#
+        ## ...#
+        ## where 'id' is the monitor ID number and 'nobs' is the#
+        ## number of complete cases#
+        file2read <- paste(directory, "/", sprintf("%03d", id), ".csv", sep = "")#
+        dat <- list()#
+        for (i in seq_along(file2read)) {#
+                dat[[i]] <- read.csv(file2read[i])#
+        }#
+        dat_df <- do.call(rbind, dat)#
+        count <- as.data.frame(table(dat_df$ID))#
+        colnames(count) <- c("id", "nobs")#
+        return(count)#
+}
+complete("specdata", 1)#
+complete("specdata", c(2, 4, 8, 10, 12))#
+complete("specdata", 30:25)#
+complete("specdata", 3)
+complete <- function(directory, id = 1:332) {#
+        ## 'directory' is a character vector of length 1 indicating#
+        ## the location of the CSV files#
+#
+        ## 'id' is an integer vector indicating the monitor ID numbers#
+        ## to be used#
+        ## Return a data frame of the form:#
+        ## id nobs#
+        ## 1  117#
+        ## 2  1041#
+        ## ...#
+        ## where 'id' is the monitor ID number and 'nobs' is the#
+        ## number of complete cases#
+        file2read <- paste(directory, "/", sprintf("%03d", id), ".csv", sep = "")#
+        dat <- list()#
+        for (i in seq_along(file2read)) {#
+                dat[[i]] <- read.csv(file2read[i])#
+        }#
+        dat_df <- do.call(rbind, dat)#
+        dat_df <- complete.cases(dat_df)#
+        count <- as.data.frame(table(dat_df$ID))#
+        colnames(count) <- c("id", "nobs")#
+        return(count)#
+}#
+#
+complete("specdata", 1)#
+complete("specdata", c(2, 4, 8, 10, 12))#
+complete("specdata", 30:25)#
+complete("specdata", 3)
+dat_df
+dat_df <- complete.cases(dat_df)
+dat_df
+complete <- function(directory, id = 1:332) {#
+        ## 'directory' is a character vector of length 1 indicating#
+        ## the location of the CSV files#
+#
+        ## 'id' is an integer vector indicating the monitor ID numbers#
+        ## to be used#
+        ## Return a data frame of the form:#
+        ## id nobs#
+        ## 1  117#
+        ## 2  1041#
+        ## ...#
+        ## where 'id' is the monitor ID number and 'nobs' is the#
+        ## number of complete cases#
+        file2read <- paste(directory, "/", sprintf("%03d", id), ".csv", sep = "")#
+        dat <- list()#
+        for (i in seq_along(file2read)) {#
+                dat[[i]] <- read.csv(file2read[i])#
+        }#
+        dat_df <- do.call(rbind, dat)#
+        dat_df <- dat_df[complete.cases(dat_df),]#
+        count <- as.data.frame(table(dat_df$ID))#
+        colnames(count) <- c("id", "nobs")#
+        return(count)#
+}#
+#
+complete("specdata", 1)#
+complete("specdata", c(2, 4, 8, 10, 12))#
+complete("specdata", 30:25)#
+complete("specdata", 3)
+submit()
+submit()
+submit()
+submit()
+str(dat_df)
+dat <- list()
+for (i in seq_along(file2read)) {#
+                dat[[i]] <- read.csv(file2read[i])#
+        }
+dat_df <- do.call(rbind, dat)
+dat_df <- dat_df[complete.cases(dat_df),]
+str(dat_df)
+cc <- complete("specdata", 332:1)
+str(cc)
+complete("specdata", 30:25)
+id = 30:25
+rownames(count) <- count$id
+count
+file2read <- paste(directory, "/", sprintf("%03d", id), ".csv", sep = "")#
+        dat <- list()#
+        for (i in seq_along(file2read)) {#
+                dat[[i]] <- read.csv(file2read[i])#
+        }#
+        dat_df <- do.call(rbind, dat)#
+        dat_df <- dat_df[complete.cases(dat_df),]#
+        count <- as.data.frame(table(dat_df$ID))#
+        colnames(count) <- c("id", "nobs")
+count
+rownames(count) <- count$id
+count
+count <- count[id,]
+count
+count <- as.data.frame(table(dat_df$ID))
+colnames(count) <- c("id", "nobs")
+?merge
+merge(id, count, sort = F, by = "id")
+count
+id
+merge(data.frame(id = id), count, sort = F, by = "id")
+complete <- function(directory, id = 1:332) {#
+        ## 'directory' is a character vector of length 1 indicating#
+        ## the location of the CSV files#
+#
+        ## 'id' is an integer vector indicating the monitor ID numbers#
+        ## to be used#
+        ## Return a data frame of the form:#
+        ## id nobs#
+        ## 1  117#
+        ## 2  1041#
+        ## ...#
+        ## where 'id' is the monitor ID number and 'nobs' is the#
+        ## number of complete cases#
+        file2read <- paste(directory, "/", sprintf("%03d", id), ".csv", sep = "")#
+        dat <- list()#
+        for (i in seq_along(file2read)) {#
+                dat[[i]] <- read.csv(file2read[i])#
+        }#
+        dat_df <- do.call(rbind, dat)#
+        dat_df <- dat_df[complete.cases(dat_df),]#
+        count <- as.data.frame(table(dat_df$ID))#
+        colnames(count) <- c("id", "nobs")#
+        merge(data.frame(id = id), count, sort = F, by = "id")#
+        return(count)#
+}#
+#
+# complete("specdata", 1)#
+# complete("specdata", c(2, 4, 8, 10, 12))#
+complete("specdata", 30:25)#
+# complete("specdata", 3)
+complete <- function(directory, id = 1:332) {#
+        ## 'directory' is a character vector of length 1 indicating#
+        ## the location of the CSV files#
+#
+        ## 'id' is an integer vector indicating the monitor ID numbers#
+        ## to be used#
+        ## Return a data frame of the form:#
+        ## id nobs#
+        ## 1  117#
+        ## 2  1041#
+        ## ...#
+        ## where 'id' is the monitor ID number and 'nobs' is the#
+        ## number of complete cases#
+        file2read <- paste(directory, "/", sprintf("%03d", id), ".csv", sep = "")#
+        dat <- list()#
+        for (i in seq_along(file2read)) {#
+                dat[[i]] <- read.csv(file2read[i])#
+        }#
+        dat_df <- do.call(rbind, dat)#
+        dat_df <- dat_df[complete.cases(dat_df),]#
+        count <- as.data.frame(table(dat_df$ID))#
+        colnames(count) <- c("id", "nobs")#
+        count <- merge(data.frame(id = id), count, sort = F, by = "id")#
+        return(count)#
+}#
+#
+# complete("specdata", 1)#
+# complete("specdata", c(2, 4, 8, 10, 12))#
+complete("specdata", 30:25)#
+# complete("specdata", 3)
+submit()
+submit()
+complete <- function(directory, id = 1:332) {#
+        ## 'directory' is a character vector of length 1 indicating#
+        ## the location of the CSV files#
+#
+        ## 'id' is an integer vector indicating the monitor ID numbers#
+        ## to be used#
+        ## Return a data frame of the form:#
+        ## id nobs#
+        ## 1  117#
+        ## 2  1041#
+        ## ...#
+        ## where 'id' is the monitor ID number and 'nobs' is the#
+        ## number of complete cases#
+        file2read <- paste(directory, "/", sprintf("%03d", id), ".csv", sep = "")#
+        dat <- list()#
+        for (i in seq_along(file2read)) {#
+                dat[[i]] <- read.csv(file2read[i])#
+        }#
+        dat_df <- do.call(rbind, dat)#
+        dat_df <- dat_df[complete.cases(dat_df),]#
+        count <- as.data.frame(table(dat_df$ID))#
+        colnames(count) <- c("id", "nobs")#
+        count <- merge(data.frame(id = id), count, sort = F, by = "id")#
+        return(count)#
+}#
+#
+# complete("specdata", 1)#
+# complete("specdata", c(2, 4, 8, 10, 12))#
+# complete("specdata", 30:25)#
+# complete("specdata", 3)
+complete("specdata", 30:25)
+set.seed(42)
+cc <- complete("specdata", 332:1)
+use <- sample(332, 10)
+paste(cc[use, "nobs"], collapse = "\n")
+use
+cc
+use
+cc[use,]
+count <- as.data.frame(table(dat_df$ID), stringAsFactor = F)
+str(count)
+?data.frame
+count <- as.data.frame(table(dat_df$ID), stringsAsFactors = F)
+str(count)
+colnames(count) <- c("id", "nobs")
+count <- merge(data.frame(id = id), count, sort = F, by = "id")
+complete <- function(directory, id = 1:332) {#
+        ## 'directory' is a character vector of length 1 indicating#
+        ## the location of the CSV files#
+#
+        ## 'id' is an integer vector indicating the monitor ID numbers#
+        ## to be used#
+        ## Return a data frame of the form:#
+        ## id nobs#
+        ## 1  117#
+        ## 2  1041#
+        ## ...#
+        ## where 'id' is the monitor ID number and 'nobs' is the#
+        ## number of complete cases#
+        file2read <- paste(directory, "/", sprintf("%03d", id), ".csv", sep = "")#
+        dat <- list()#
+        for (i in seq_along(file2read)) {#
+                dat[[i]] <- read.csv(file2read[i])#
+        }#
+        dat_df <- do.call(rbind, dat)#
+        dat_df <- dat_df[complete.cases(dat_df),]#
+        count <- as.data.frame(table(dat_df$ID), stringsAsFactors = F)#
+        colnames(count) <- c("id", "nobs")#
+        count <- merge(data.frame(id = id), count, sort = F, by = "id")#
+        return(count)#
+}#
+#
+# complete("specdata", 1)#
+# complete("specdata", c(2, 4, 8, 10, 12))#
+# complete("specdata", 30:25)#
+# complete("specdata", 3)
+set.seed(42)
+cc <- complete("specdata", 332:1)
+use <- sample(332, 10)
+use
+cc[use,]
+cc
+complete <- function(directory, id = 1:332) {#
+        ## 'directory' is a character vector of length 1 indicating#
+        ## the location of the CSV files#
+#
+        ## 'id' is an integer vector indicating the monitor ID numbers#
+        ## to be used#
+        ## Return a data frame of the form:#
+        ## id nobs#
+        ## 1  117#
+        ## 2  1041#
+        ## ...#
+        ## where 'id' is the monitor ID number and 'nobs' is the#
+        ## number of complete cases#
+        file2read <- paste(directory, "/", sprintf("%03d", id), ".csv", sep = "")#
+        dat <- list()#
+        for (i in seq_along(file2read)) {#
+                dat[[i]] <- read.csv(file2read[i])#
+        }#
+        dat_df <- do.call(rbind, dat)#
+        dat_df <- dat_df[complete.cases(dat_df),]#
+        count <- as.data.frame(table(dat_df$ID), stringsAsFactors = F)#
+        colnames(count) <- c("id", "nobs")#
+        count <- merge(data.frame(id = id), count, sort = F, by = "id", all.x = T)#
+        return(count)#
+}#
+#
+# complete("specdata", 1)#
+# complete("specdata", c(2, 4, 8, 10, 12))#
+# complete("specdata", 30:25)#
+# complete("specdata", 3)
+cc <- complete("specdata", 332:1)
+use <- sample(332, 10)
+cc[use,]
+complete <- function(directory, id = 1:332) {#
+        ## 'directory' is a character vector of length 1 indicating#
+        ## the location of the CSV files#
+#
+        ## 'id' is an integer vector indicating the monitor ID numbers#
+        ## to be used#
+        ## Return a data frame of the form:#
+        ## id nobs#
+        ## 1  117#
+        ## 2  1041#
+        ## ...#
+        ## where 'id' is the monitor ID number and 'nobs' is the#
+        ## number of complete cases#
+        file2read <- paste(directory, "/", sprintf("%03d", id), ".csv", sep = "")#
+        dat <- list()#
+        for (i in seq_along(file2read)) {#
+                dat[[i]] <- read.csv(file2read[i])#
+        }#
+        dat_df <- do.call(rbind, dat)#
+        dat_df <- dat_df[complete.cases(dat_df),]#
+        count <- as.data.frame(table(dat_df$ID), stringsAsFactors = F)#
+        colnames(count) <- c("id", "nobs")#
+        count <- merge(data.frame(id = id), count, sort = F, by = "id", all.x = T)#
+        count$nobs[is.na(count$nobs)] == 0#
+        return(count)#
+}#
+#
+# complete("specdata", 1)#
+# complete("specdata", c(2, 4, 8, 10, 12))#
+# complete("specdata", 30:25)#
+# complete("specdata", 3)
+set.seed(42)
+cc <- complete("specdata", 332:1)
+use <- sample(332, 10)
+cc[use,]
+id = 1:332
+complete("specdata")
+id = 1:332
+file2read <- paste(directory, "/", sprintf("%03d", id), ".csv", sep = "")#
+        dat <- list()#
+        for (i in seq_along(file2read)) {#
+                dat[[i]] <- read.csv(file2read[i])#
+        }#
+        dat_df <- do.call(rbind, dat)#
+        dat_df <- dat_df[complete.cases(dat_df),]#
+        count <- as.data.frame(table(dat_df$ID), stringsAsFactors = F)#
+        colnames(count) <- c("id", "nobs")
+count <- merge(data.frame(id = id), count, sort = F, by = "id", all.x = T)
+count$nobs[is.na(count$nobs)] == 0
+complete("specdata")
+is.na(count$nobs)
+count$nobs[is.na(count$nobs)]
+count$nobs[is.na(count$nobs)] <- 0
+count
+complete <- function(directory, id = 1:332) {#
+        ## 'directory' is a character vector of length 1 indicating#
+        ## the location of the CSV files#
+#
+        ## 'id' is an integer vector indicating the monitor ID numbers#
+        ## to be used#
+        ## Return a data frame of the form:#
+        ## id nobs#
+        ## 1  117#
+        ## 2  1041#
+        ## ...#
+        ## where 'id' is the monitor ID number and 'nobs' is the#
+        ## number of complete cases#
+        file2read <- paste(directory, "/", sprintf("%03d", id), ".csv", sep = "")#
+        dat <- list()#
+        for (i in seq_along(file2read)) {#
+                dat[[i]] <- read.csv(file2read[i])#
+        }#
+        dat_df <- do.call(rbind, dat)#
+        dat_df <- dat_df[complete.cases(dat_df),]#
+        count <- as.data.frame(table(dat_df$ID), stringsAsFactors = F)#
+        colnames(count) <- c("id", "nobs")#
+        count <- merge(data.frame(id = id), count, sort = F, by = "id", all.x = T)#
+        count$nobs[is.na(count$nobs)] <- 0#
+        return(count)#
+}#
+#
+# complete("specdata", 1)#
+# complete("specdata", c(2, 4, 8, 10, 12))#
+# complete("specdata", 30:25)#
+# complete("specdata", 3)#
+complete("specdata")
+cc <- complete("specdata", 332:1)#
+                use <- sample(332, 10)
+cc[use,]
+submit()
+use
+dim(cc)
+?complete.case
+?complete.cases
+dat_df <- do.call(rbind, dat)
+str(dat_df)
+require(plyr)
+dat_df <- dat_df[complete.cases(dat_df$sulfate, dat_df$nitrate),]
+count(dat_df, ID)
+str(dat_df)
+count(dat_df, "ID")
+submit
+submit()
+dat_df <- do.call(rbind, dat)
+table(dat_df$ID)
+length(table(dat_df$ID))
+complete.cases(dat_df$sulfate, dat_df$nitrate)
+dat_df <- dat_df[complete.cases(dat_df$sulfate, dat_df$nitrate),]
+table(dat_df$ID)
+length(table(dat_df$ID))
+count <- as.data.frame(table(dat_df$ID), stringsAsFactors = F)
+colnames(count) <- c("id", "nobs")
+count <- merge(data.frame(id = id), count, sort = F, by = "id", all.x = T)
+332:1[use]
+use
+332:1
+c(332:1)[use]
+cc[use,id]
+cc[use,"id"]
+cc
+colnames(count) <- c("id", "nobs")
+count <- merge(data.frame(id = id), count, sort = F, by = "id", all.x = T)
+count <- merge(data.frame(id = id), count, sort = F, by = "id")
+count
+count$nobs[is.na(count$nobs)] <- 0
+id
+id = 332:1
+count <- merge(data.frame(id = id), count, sort = F, by = "id", all.x = T)
+count <- merge(data.frame(id = id), count, sort = F, by = "id")
+count$nobs[is.na(count$nobs)] <- 0
+count
+submit()
+file2read <- dir(directory, full.names=T)
+file2read
+dat <- list()#
+        for (i in seq_along(file2read)) {#
+                dat[[i]] <- read.csv(file2read[i])#
+        }#
+        dat_df <- do.call(rbind, dat)
+?cor
+count <- complete(directory)
+id_in <- count$nobs >= threshold
+threshold = 0
+id_in <- count$nobs >= threshold
+id_in
+threshold = 50
+id_in <- count$nobs >= threshold
+id_in
+id_in <- count[count$nobs >= threshold,ID]
+id_in <- count[count$nobs >= threshold,id]
+id_in <- count[count$nobs >= threshold,id]
+count
+str(count)
+id_in <- count[count$nobs >= threshold,"id"]
+id_in
+dat_full_subset <- subset(dat_df, ID == id_in)
+dat_full_subset <- subset(dat_df, ID %in% id_in)
+dat_full_subset
+dat_df <- dat_df[complete.cases(dat_df$sulfate, dat_df$nitrate),]
+dat_full_subset <- subset(dat_df, ID %in% id_in)
+dat_full_subset
+all_id <- unique(dat_df$ID)
+?aggregate
+?by
+ind <- list(c(1, 2, 2), c("A", "A", "B"))#
+table(ind)#
+tapply(1:3, ind) #-> the split vector#
+tapply(1:3, ind, sum)
+ind
+id_in
+i=1
+sub <- subset(dat_full_subset, ID == i)
+cor(sub["sulfate", "nitrate"])
+cor(sub$"sulfate", sub$"nitrate")
+correlation <- c(correlation, cor(sub$"sulfate", sub$"nitrate"))
+correlation <- vector()
+correlation <- c(correlation, cor(sub$"sulfate", sub$"nitrate"))
+correlation
+correlation <- vector()
+for (i in id_in) {#
+        	sub <- subset(dat_full_subset, ID == i)#
+        	correlation <- c(correlation, cor(sub$"sulfate", sub$"nitrate"))#
+        }
+corr <- function(directory, threshold = 0) {#
+        ## 'directory' is a character vector of length 1 indicating#
+        ## the location of the CSV files#
+#
+        ## 'threshold' is a numeric vector of length 1 indicating the#
+        ## number of completely observed observations (on all#
+        ## variables) required to compute the correlation between#
+        ## nitrate and sulfate; the default is 0#
+#
+        ## Return a numeric vector of correlations#
+	 	file2read <- dir(directory, full.names=T)#
+        dat <- list()#
+        for (i in seq_along(file2read)) {#
+                dat[[i]] <- read.csv(file2read[i])#
+        }#
+        dat_df <- do.call(rbind, dat)#
+        dat_df <- dat_df[complete.cases(dat_df$sulfate, dat_df$nitrate),]#
+        source("complete.R")#
+        count <- complete(directory)#
+        all_id <- unique(dat_df$ID)#
+        id_in <- count[count$nobs >= threshold,"id"]#
+        correlation <- vector()#
+        for (i in all_id) {#
+        	if (i %in% id_in) {#
+        		sub <- subset(dat_df, ID == i)#
+        		correlation <- c(correlation, cor(sub$"sulfate", sub$"nitrate"))#
+        	} else {correlation <- c(correlation, 0)}#
+        }#
+        return(correlation)#
+}
+cr <- corr("specdata", 150)#
+head(cr)#
+## [1] -0.01896 -0.14051 -0.04390 -0.06816 -0.12351 -0.07589#
+summary(cr)#
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. #
+## -0.2110 -0.0500  0.0946  0.1250  0.2680  0.7630#
+cr <- corr("specdata", 400)#
+head(cr)#
+## [1] -0.01896 -0.04390 -0.06816 -0.07589  0.76313 -0.15783#
+summary(cr)#
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. #
+## -0.1760 -0.0311  0.1000  0.1400  0.2680  0.7630#
+cr <- corr("specdata", 5000)#
+summary(cr)#
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. #
+## #
+length(cr)#
+## [1] 0#
+cr <- corr("specdata")#
+summary(cr)#
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. #
+## -1.0000 -0.0528  0.1070  0.1370  0.2780  1.0000#
+length(cr)#
+## [1] 323
+cr
+summary(cr)
+all_id
+id_in
+count
+corr <- function(directory, threshold = 0) {#
+        ## 'directory' is a character vector of length 1 indicating#
+        ## the location of the CSV files#
+#
+        ## 'threshold' is a numeric vector of length 1 indicating the#
+        ## number of completely observed observations (on all#
+        ## variables) required to compute the correlation between#
+        ## nitrate and sulfate; the default is 0#
+#
+        ## Return a numeric vector of correlations#
+	 	file2read <- dir(directory, full.names=T)#
+        dat <- list()#
+        for (i in seq_along(file2read)) {#
+                dat[[i]] <- read.csv(file2read[i])#
+        }#
+        dat_df <- do.call(rbind, dat)#
+        dat_df <- dat_df[complete.cases(dat_df$sulfate, dat_df$nitrate),]#
+        source("complete.R")#
+        count <- complete(directory)#
+        all_id <- unique(dat_df$ID)#
+        id_in <- count[count$nobs >= threshold,"id"]#
+        correlation <- vector()#
+        for (i in all_id) {#
+        	if (i %in% id_in) {#
+        		sub <- subset(dat_df, ID == i)#
+        		correlation <- c(correlation, cor(sub$"sulfate", sub$"nitrate"))#
+        	} #
+        }#
+        return(correlation)#
+}#
+threshold = 150#
+#
+cr <- corr("specdata", 150)#
+head(cr)#
+## [1] -0.01896 -0.14051 -0.04390 -0.06816 -0.12351 -0.07589#
+summary(cr)#
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. #
+## -0.2110 -0.0500  0.0946  0.1250  0.2680  0.7630#
+cr <- corr("specdata", 400)#
+head(cr)#
+## [1] -0.01896 -0.04390 -0.06816 -0.07589  0.76313 -0.15783#
+summary(cr)#
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. #
+## -0.1760 -0.0311  0.1000  0.1400  0.2680  0.7630#
+cr <- corr("specdata", 5000)#
+summary(cr)#
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. #
+## #
+length(cr)#
+## [1] 0#
+cr <- corr("specdata")#
+summary(cr)#
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. #
+## -1.0000 -0.0528  0.1070  0.1370  0.2780  1.0000#
+length(cr)#
+## [1] 323
+submit()
+submit()
+submit()
+swirl()
+require(swirl)
+swirl()
+x = c(44, NA, 5, NA)
+x <- c(44, NA, 5, NA)
+x*3
+y <- rnorm(1000)
+z <- rep(NA, 1000)
+myData <- sample(c(y, z), 100)
+myNA <- is.na(myData)
+myNA
+myData==NA
+sum(myNA)
+myData
+0/0
+Inf/Inf
+Inf - Inf
+x
+x[1:10]
+x[is.na(x)]
+y <- x[!is.na(x)]
+y
+x[x>0]
+y[y > 0]
+x[x > 0]
+x[!is.na(x) & x > 0]
+x[c(3,5,7)]
+x[0]
+x[3000]
+x[c(-2, -10)]
+x[-c(2, 10)]
+vect <- c(foo = 11, bar = 2, norf =#
+NA)
+vect
+names(vect)
+vect2 <- c(11, 2, NA)
+names(vect2) <- c("foo",#
+"bar", "norf")
+identical(vect, vect2)
+vect["bar"]
+vect[c("foo", "bar")]

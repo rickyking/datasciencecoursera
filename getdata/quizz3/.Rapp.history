@@ -1,0 +1,273 @@
+require(shiny)
+runApp("~/Dropbox/02.EY Analytics/09.shiny-dataviz")
+?includeHTML
+includeMarkDown
+?includeMarkDown
+?includeMD
+?includeHTML
+?navbarPage
+require(shiny)
+require(wordcloud)
+require(rCharts)
+require(twitteR)
+?twitteR
+??twitteR
+update.packages(ask=F)
+y
+require(shiny)
+find.package
+find.package()
+install.packages("devtools")
+installed.packages()
+require(devtools)#
+install_github('ramnathv/rCharts@dev')#
+install_github('ramnathv/rMaps')
+if (!require("devtools"))#
+  install.packages("devtools")#
+devtools::install_github("shiny", "rstudio")
+install.packages(c("dplyr","plyr","twitteR","streamR","httr"))
+library(devtools)#
+install_github("mages/googleVis")
+install.packages("devtools")#
+devtools::install_github("hadley/httr")
+install.packages(knitr)
+install.packages("knitr")
+install.packages("devtools")#
+devtools::install_github("hadley/httr")
+library(devtools)#
+install_github("mages/googleVis")
+Sys.which("pdflatex")#
+Sys.getenv("PATH")
+Sys.setenv(PATH=paste(Sys.getenv("PATH"),"/usr/texbin",sep=":"))
+library(devtools)#
+install_github("mages/googleVis")
+install.packages("devtools")#
+devtools::install_github("hadley/httr")
+install.packages("devtools")#
+devtools::install_github("hadley/httr", dependency=T)
+install_github("dplyr", dependencies = T)
+install.pacakges("bit64")
+install.packages("bit64")
+install.packages("rjson")
+install_github("twitteR", username="geoffjentry")
+install.packages("RMySQL")
+install_github("RMySQL", username="jeffreyhorner")
+require(shiny)
+require(wordcloud)
+require(rCharts)
+require(twitteR)
+require(devtools)#
+install_github('ramnathv/rCharts@dev')#
+install_github('ramnathv/rMaps')
+install.packages("base64enc")
+require(devtools)#
+install_github('ramnathv/rCharts@dev')#
+install_github('ramnathv/rMaps')
+install.packages("wordcloud")
+require(shiny)
+require(wordcloud)
+require(rCharts)
+require(twitteR)
+??twitteR
+?twitteR
+??twitteR
+library(datasets)
+data(iris)
+mean(iris$Sepal.Length[iris$species == "virginica"])
+str(iris)
+mean(iris$Sepal.Length[iris$Species == "virginica"])
+apply(iris[, 1:4], 2, mean)
+library(datasets)#
+data(mtcars)
+str(mtcars)
+with(mtcars, tapply(mpg, cyl, mean))
+?mtcars
+with(mtcars[cyl==4,], mean(hp))
+with(mtcars[mtcars$cyl==4,], mean(hp))
+with(mtcars[mtcars$cyl==8,], mean(hp))
+with(mtcars[mtcars$cyl==8,], mean(hp)) - with(mtcars[mtcars$cyl==8,], mean(hp))
+with(mtcars[mtcars$cyl==8,], mean(hp)) - with(mtcars[mtcars$cyl==4,], mean(hp))
+debug(ls)
+ls()
+require(swirl)
+Q
+?debug
+Q
+undebug(ls)
+require(swirl)
+swirl()
+myVector <- 1:20
+myVector
+dim(myVector)
+length(myVector)
+dim(myVector) <- c(4,5)
+dim(myVector)
+attributes(myVector)
+myVector
+class(myVector)
+myMatrix <- myVector
+?matrix
+myMatrix2<-matrix(1:20, nrow=4, ncol=1, byrow=F)
+myMatrix2<-matrix(1:20, nrow=4, ncol=5, byrow=F)
+identical(myMatrix, myMatrix2)
+patients <- c("Bill", "Gnia", "Kelly", "Sean")
+patients <- c("Bill", "Gina", "Kelly", "Sean")
+cbind(patients, myMatrix)
+myData <- data.frame(patients, myMatrix)
+myData
+class(myData)
+cnames <- c("patient", "age", "weight", "bp", "rating",#
+ "test")
+colnames(myD)
+colnames(myData)<-cnames
+myData
+q()
+url = "http://biostat.jhsph.edu/~jleek/contact.html "
+con = url("http://biostat.jhsph.edu/~jleek/contact.html")
+tt<-readLines(con)
+str(tt)
+nchar(10)
+nchar(ss[10])
+nchar(tt[10])
+nchar(tt[20])
+nchar(tt[30])
+nchar(tt[100])
+?read.csv
+close(con)
+con = url("https://d396qusza40orc.cloudfront.net/getdata%2Fwksst8110.for")
+tt <- readLines(con)
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fwksst8110.for", "/Users/yjin/Dropbox/01.02.Study Notes/datasciencecoursera/getdata/quizz2")
+?download.file
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fwksst8110.for", "/Users/yjin/Dropbox/01.02.Study Notes/datasciencecoursera/getdata/quizz2", mode = "wb")
+mode = "wb", method="curl")
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fwksst8110.for",
+"/Users/yjin/Dropbox/01.02.Study Notes/datasciencecoursera/getdata/quizz2",
+mode = "wb", method="curl")
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fwksst8110.for",
+"/Users/yjin/Dropbox/01.02.Study Notes/datasciencecoursera/getdata/quizz2/getdata%2Fwksst8110.for",
+mode = "wb", method="curl")
+?read.table
+tt<-read.fwf(
+file=url("http://www.cpc.ncep.noaa.gov/data/indices/wksst8110.for"),
+skip=4,
+widths=c(12, 7,4, 9,4, 9,4, 9,4))
+str(tt)
+sum(tt[,4])
+sum(tt[,5])
+tt<-read.fwf(#
+  file=url("https://d396qusza40orc.cloudfront.net/getdata%2Fwksst8110.for"),#
+  skip=4,#
+  widths=c(12, 7,4, 9,4, 9,4, 9,4))#
+str(tt)#
+sum(tt[,4])
+?url
+?read.fwf
+tt<-read.fwf(
+file=url("https://d396qusza40orc.cloudfront.net/getdata%2Fwksst8110.for"),
+skip=4,
+widths=c(12, 7,4, 9,4, 9,4, 9,4), method="curl")
+tt<-read.fwf(
+file=url("http://d396qusza40orc.cloudfront.net/getdata%2Fwksst8110.for"),
+skip=4,
+widths=c(12, 7,4, 9,4, 9,4, 9,4))
+str(tt)
+sum(tt[,4])
+?read.fmf
+?read.fwf
+source("/Users/yjin/Dropbox/01.02.Study Notes/datasciencecoursera/getdata/quizz3/code.R")
+setwd("/Users/yjin/Dropbox/01.02.Study Notes/datasciencecoursera/getdata/quizz3/")
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv", "q1.csv", method = "curl")
+dat <- read.csv("q1.csv")
+str(dat)
+v <- which(dat[dat$ACR == 3 & dat$ACR == 6, ])
+v <- which(dat$ACR == 3 & dat$ACR == 6)
+v
+dat$ACR
+v <- which(dat$ACR == 3 & dat$AGS == 6)
+v
+install.packages("hpeg")
+install.packages("jpeg")
+require(jpeg)
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fjeff.jpg", "q2.jpg", method = "curl")
+?jpeg
+??jpeg
+q2 <- readJPEG("q2.jpg", native = T)
+quantile(q2, c(.3,.8))
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv", "q3.csv", method = "curl")
+q3 <- read.csv("q3.csv")
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv", "q3_1.csv", method ="curl")
+q3_1 <- read.csv("q3_1.csv")
+dim(q3)
+dim(q3_1)
+names(q3)
+head(q3)
+head(q3_1)
+tt <- merge(q3, q3_1, by.x = "X", by.y = "CountryCode")
+dim(tt)
+tt
+head(tt)
+tt$X
+?merge
+dim(tt)
+q1
+q3
+q3 <- q3[!is.na(q3$X),]
+q3
+head(q3)
+q3 <- q3[q3$X!="",]
+head(q3)
+dim(q3)
+q3$X
+namesq3_1
+names(q3_1)
+sum(q3$X %in% q3_1)
+str(q3)
+?read.csv
+q3 <- read.csv("q3.csv", stringsAsFactors=F)
+q3_1 <- read.csv("q3_1.csv", stringsAsFactors = F)
+q3 <- q3[is.na(q3$X),]
+dim(q3)
+q3 <- read.csv("q3.csv", stringsAsFactors=F)
+dim(q3)
+dim(q3)
+q3 <- q3[q3$X!="",]
+dim(q3)
+head(q3)
+table(q3$X)
+table(q3_1$CountryCode)
+table(q3$X, useNA="ifany"
+)
+table(q3_1$CountryCode, useNA="ifany")
+tt <- merge(q3_1, q3, by.x = "CountryCode", by.y = "X")
+dim(tt)
+names(q3_1)
+q3
+str(tt)
+ttt<- tt[tt$"Gross.domestic.product.2012"!="",]
+dim(ttt)
+ttt$"Gross.domestic.product.2012" <- as.numeric(ttt$"Gross.domestic.product.2012")
+tttt <- sort(ttt$"Gross.domestic.product.2012")
+tttt <- sort(ttt$"Gross.domestic.product.2012", decreasing = T)
+head(tttt, 13)
+tttt <- ttt[order(ttt$"Gross.domestic.product.2012", decreasing = T),]
+head(tttt, 13)
+q1
+q3
+names(q3_1)
+table(q3_1$Income.Group)
+q4<-tttt[tttt$Income.Group %in% c("High income: OECD", "High income: nonOECD"), ]
+tapply(q4,q4$Income.Group, mean)
+tapply(q4$"Gross.domestic.product.2012",q4$Income.Group, mean)
+require(plyr)
+?cut2
+??cut2
+?plyr
+require(Hmisc)
+install.packages("Hmisc")
+require(Hmisc)
+?cut2
+?cut2
+q5$grouped<-cut2(tttt$"Gross.domestic.product.2012", g=5)
+q5<-tttt
+q5$grouped<-cut2(tttt$"Gross.domestic.product.2012", g=5)
+table(q5$grouped, q5$Income.Group)
